@@ -1,10 +1,10 @@
-FC = ifort_proprietary_compiler
-FFLAGS_COMMON = -I.
-# '-fast' is a common flag for proprietary compilers, not standard for gfortran
-FFLAGS_OPT = -fast
+FC = gfortran
+FFLAGS_COMMON = -I. -fopenmp
+# Use standard optimization for gfortran
+FFLAGS_OPT = -O2
 FFLAGS = $(FFLAGS_COMMON) $(FFLAGS_OPT)
 
-LDFLAGS =
+LDFLAGS = -fopenmp
 
 TARGET_EXEC = test_program
 OBJS_LIB = my_lib.o
